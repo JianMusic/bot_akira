@@ -1,6 +1,6 @@
 const Canvas = require("canvas")
 const Discord = require("discord.js")
-const background = "https://i.pinimg.com/originals/b4/ac/bf/b4acbf371e8117ae227ec18814d09b90.png"
+const background = "https://cdn.discordapp.com/attachments/901304253677711450/928427537279905792/welcome_image2.png"
 
 const dim = {
     height: 670,
@@ -27,8 +27,8 @@ const generateImage = async (member) => {
     ctx.drawImage(backing, 0, 0)
 
     //draw black tinted box
-    ctx.fillStyle = "rgba(0,0,0,0.8)"
-    ctx.fillRect(dim.margin, dim.margin, dim.width - 2 * dim.margin, dim.height - 2 * dim.margin)
+    //ctx.fillStyle = "rgba(0,0,0,0.8)"
+    //ctx.fillRect(dim.margin, dim.margin, dim.width - 2 * dim.margin, ///dim.height - 2 * dim.margin)
 
     const avimg = await Canvas.loadImage(avatarURL)
     ctx.save()
@@ -42,19 +42,19 @@ const generateImage = async (member) => {
     ctx.restore()
 
     // write in tex
-    ctx.fillStyle = "white"
+    ctx.fillStyle = "black"
     ctx.textAlign = "center"
 
     // draw in welcom
-    ctx.font = "50px Roboto"
-    ctx.fillText("Welcome", dim.width/2, dim.margin + 70)
+    ctx.font = "50px Kalam"
+    ctx.fillText("WelCUM", dim.width/2, dim.margin + 70)
 
     // draw in the username
-    ctx.font = "60px Roboto"
-    ctx.fillText(username + discrim, dim.width/2, dim.height - dim.margin -125)
+    ctx.font = "60px Kalam"
+    ctx.fillText(username + "#" + discrim, dim.width/2, dim.height - dim.margin -125)
 
     // draw in to the server
-    ctx.font = "40px Roboto"
+    ctx.font = "40px Kalam"
     ctx.fillText("to the server", dim.width/2, dim.height - dim.margin - 50)
 
     const attachement = new Discord.MessageAttachment(canvas.toBuffer(), "welcome.png")
